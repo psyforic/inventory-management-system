@@ -1,0 +1,26 @@
+<mat-toolbar class="sidenav mat-elevation-z6 zindex2">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon aria-hidden="false" *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon aria-hidden="true" *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+        <span>Inventory Management System</span>
+        <span class="example-spacer"></span>
+        <div>
+            <div class="vertical-center" style=" margin-top:4px;display: flex;">
+                <a style="padding-top: 15px;">
+                    <mat-icon style="color: #278ae18e;" matBadge="3" matBadgeColor="accent">message</mat-icon>
+                    <span>&nbsp;</span>
+                </a>&nbsp;
+                <p style="padding-top: 15px;">
+                    <mat-icon style="color: #079292a1;" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+                    <span>&nbsp;</span>
+                </p>&nbsp;
+                <p style="padding-top: 10px;">
+                    <mat-icon class="icon-display" style="color: #278AE1;" matBadgeColor="warn">account_circle</mat-icon>
+                    <span>&nbsp;</span>
+                </p>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

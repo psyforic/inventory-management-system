@@ -1,0 +1,179 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        <div class="container-fluid">
+            <h1 class="logo">
+                <a href="#">Leap<span> Tech</span></a>
+            </h1>
+            <mat-nav-list class="main-nav " role="navigation">
+                <ul class="unstyled list-hover-slide">
+                    <span>&nbsp;</span>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/dashboard']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>dashboard</mat-icon>Dashboard
+              </span></a>
+                    </li>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>card_giftcard</mat-icon>Products
+              </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>store</mat-icon>Suppliers
+              </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>shopping_cart</mat-icon>Orders
+              </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>payment</mat-icon>Transactions
+              </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="text" href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <span class="icon">
+                <mat-icon mat-font-icon>settings</mat-icon>Settings
+              </span>
+                        </a>
+                    </li>
+                </ul>
+            </mat-nav-list>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar class="sidenav mat-elevation-z6 zindex2">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon aria-hidden="false" *ngIf="!sidenav.opened"> menu </mat-icon>
+          <mat-icon aria-hidden="true" *ngIf="sidenav.opened"> close </mat-icon>
+        </button>
+                <span>Inventory Management System</span>
+                <span class="example-spacer"></span>
+                <div>
+                    <div class="vertical-center" style=" margin-top:4px;display: flex;">
+                        <a style="padding-top: 15px;">
+                            <mat-icon style="color: #278ae18e;" matBadge="3" matBadgeColor="accent">message</mat-icon>
+                            <span>&nbsp;</span>
+                        </a>&nbsp;
+                        <p style="padding-top: 15px;">
+                            <mat-icon style="color: #079292a1;" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+                            <span>&nbsp;</span>
+                        </p>&nbsp;
+                        <p mat-icon-button [matMenuTriggerFor]="beforeMenu" style="padding-top: 10px;">
+                            <mat-icon class="icon-display" style="color: #278AE1;" matBadgeColor="warn">account_circle</mat-icon>
+                            <span>&nbsp;</span>
+                        </p>
+                        <mat-menu #beforeMenu="matMenu">
+                            <button mat-menu-item>
+                <mat-icon>verified_user</mat-icon>
+                <span>My Profile</span>
+              </button>
+                            <button mat-menu-item disabled>
+                <mat-icon>perm_contact_calendar</mat-icon>
+                <span>Calendar</span>
+              </button>
+                            <button mat-menu-item>
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+              </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item>
+                <mat-icon>logout</mat-icon>
+                <span>Sign Out</span>
+              </button>
+                        </mat-menu>
+                    </div>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-card id="main" class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+        </mat-card>
+        <!-- <div id="main" class="content mat-elevation-z8">
+
+        </div> -->
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <mat-toolbar class="mat-elevation-z6 zindex2" mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon aria-hidden="false" *ngIf="!sidenav.opened"> menu </mat-icon>
+          <mat-icon aria-hidden="true" *ngIf="sidenav.opened"> close </mat-icon>
+        </button>
+        <span>Inventory Management System</span>
+        <span class="example-spacer"></span>
+        <div>
+            <div class="vertical-center" style=" margin-top:4px;display: flex;">
+                <a style="padding-top: 15px;">
+                    <mat-icon style="color: #278ae18e;" matBadge="3" matBadgeColor="accent">message</mat-icon>
+                    <span>&nbsp;</span>
+                </a>&nbsp;
+                <p style="padding-top: 15px;">
+                    <mat-icon style="color: #079292a1;" matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+                    <span>&nbsp;</span>
+                </p>&nbsp;
+                <p style="padding-top: 10px;">
+                    <mat-icon class="icon-display" style="color: #278AE1;" matBadgeColor="warn">account_circle</mat-icon>
+                    <span>&nbsp;</span>
+                </p>
+            </div>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav class="sidenave" [ngStyle]="{ 'width.em': sidenavWidth }" mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        <div class="container-fluid">
+            <h1 class="logo">
+                <a href="#">Leap<span> Tech</span></a>
+            </h1>
+            <nav class="main-nav " role="navigation">
+                <ul class="unstyled list-hover-slide">
+                    <li>
+                        <a href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/dashboard']">
+                            <mat-icon mat-font-icon="fas fa-home blue" class=""></mat-icon>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" routerLinkActive="active" (click)="sidenav.toggle()" [routerLink]="['/product-list']">
+                            <mat-icon mat-font-icon="fas fa-home blue" class=""></mat-icon>Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <mat-icon mat-font-icon="fas fa-home blue" class=""></mat-icon>Suppliers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <mat-icon mat-font-icon="fas fa-home blue" class=""></mat-icon>Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <mat-icon mat-font-icon="fas fa-home blue" class=""></mat-icon>Transactions
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-card>
+            <div id="main" class="content mat-elevation-z8">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-card>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->

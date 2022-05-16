@@ -1,0 +1,102 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon class="close-icon" color="warn">close</mat-icon>
+</button>
+<h1 class="title">Edit Product</h1>
+<div mat-dialog-content [align]="'center'">
+    <form class="add-product-form" [formGroup]="productForm">
+        <div class="row">
+            <div class="col-lg-6">
+                <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Brand Name</mat-label>
+                        <input formControlName="productName" [value]="product.productName" matInput placeholder="Brand name">
+                        <!-- <mat-error *ngIf="productControl.hasError('required')||productControl.hasError('')">Please enter a name
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Product Category</mat-label>
+                        <mat-select formControlName="productCategory" required>
+                            <mat-option *ngFor="let category of categories" [value]="category">
+                                {{category}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="productControl.hasError('required')||productControl.hasError('')">Please choose a category
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Select Date</mat-label>
+                        <input formControlName="date" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker [calendarHeaderComponent]="editProductHeader"></mat-datepicker>
+                        <mat-error *ngIf="productControl.hasError('required')||productControl.hasError('')">Please choose a date
+                        </mat-error>
+                    </mat-form-field>
+                </div> -->
+            <div class="col-lg-6">
+                <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <input formControlName="productQuantity" [value]="product.total" matInput type="number" placeholder="Quantity">
+                        <!-- <mat-error *ngIf="priceControl.hasError('required')||priceControl.hasError('')">Please enter quantity
+                                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Price</mat-label>
+                        <input formControlName="productPrice" matInput type="number" placeholder="Price">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div mat-card-content>
+                    <mat-form-field class="input-full-width" appearance="outline">
+                        <mat-label>Product Description</mat-label>
+                        <textarea style="height: 70px;" formControlName="productDescription" matInput placeholder="Describe the product..."></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div [align]="'left'" mat-card-content>
+                <label id="condition-radio-group-label">Product Condition</label>
+                <mat-radio-group [(ngModel)]="selectedCondition" name="productCondition" aria-labelledby="condition-radio-group-label" class="condition-radio-group">
+                    <mat-radio-button class="condition-radio-button" *ngFor="let condition of conditions" [value]="condition" (change)="onItemChange($event)">
+                        {{condition}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <!-- <mat-radio-group formControlName="productCondition" aria-labelledby="condition-radio-group-label" class="condition-radio-group">
+                        <mat-radio-button class="condition-radio-button" *ngFor="let condition of conditions" [value]="product.productCondition">
+                            {{condition}}
+                        </mat-radio-button>
+                    </mat-radio-group> -->
+
+        <div mat-card-content>
+            <mat-form-field class="input-full-width" appearance="outline">
+                <mat-label>Comment</mat-label>
+                <input formControlName="comment" matInput placeholder="Comment">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions [align]="'end'">
+            <div class="example-button-row">
+                <button mat-raised-button color="warn" (click)="dismiss()">Cancel</button>
+                <button mat-raised-button style="margin-left:8px;" color="primary" (click)="onSubmit()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

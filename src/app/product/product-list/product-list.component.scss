@@ -1,0 +1,46 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-end;
+}
+
+.example-button-row {
+    position: absolute;
+    display: flex;
+    margin: 0 auto;
+}
+
+#buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+    background-color: transparent;
+}
+
+.mat-paginator {
+    background-color: transparent!important;
+}
+
+.example-container {
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.mat-column-actions {
+    flex: 0 0 50%;
+}

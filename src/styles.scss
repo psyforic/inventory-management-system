@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/bootstrap';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    z-index: -1!important;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-drawer-content {
+    z-index: 1;
+    color: rgb(20, 15, 15);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+.my-custom-snackbar {
+    margin: 0 !important;
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+    color: whitesmoke;
+    background-color: #001E40;
+}
+
+.red-snackbar button {
+    color: #CF0909;
+    border: none;
+}
